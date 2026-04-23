@@ -62,14 +62,25 @@ public class Espaco2D {
 		for(Forma forma : this.formas) {
 			tipos[i] = null;
 			if(forma instanceof Triangulo) {
+				
 				tipos[i] = ((Triangulo)forma).tipoTriangulo();
 			}
+			i++;
 		}
 		return tipos;
 	}
 	
 	public String tiposTriangulosStr() {
-		return Arrays.toString(this.tiposTriangulos()).replace("null", "Essa forma não é um triangulo");
+		return Arrays.toString(this.tiposTriangulos()).replace("null", "Essa forma não um Triangulo");
+	}
+	
+	@Override
+	public String toString() {
+		String str = "\n";
+		for(Forma f : this.formas) {
+			str += f.toString() + "\n";
+		}
+		return str;
 	}
 	
 }

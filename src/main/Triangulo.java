@@ -74,4 +74,12 @@ public class Triangulo extends Forma{
 		if(ab || bc || Forma.doubleSaoIguais(lados[0], lados[2])/*ac*/) return Tipo.ISOSCELES;
 		return Tipo.ESCALENO;
 	}
+	
+	@Override
+	public String toString() {
+		String str = "Triangulo: {Tipo: " + this.tipoTriangulo().toString() + ", ";
+		String strForma = super.toString();
+		str+= strForma.substring(1, strForma.length());
+		return str;
+	}
 }

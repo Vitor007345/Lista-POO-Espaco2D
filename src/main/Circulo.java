@@ -60,4 +60,9 @@ public class Circulo extends Forma{
 		return 2 * this.raio * Math.PI;
 	}
 	
+	@Override
+	public String toString() {
+		return "Circulo: {Raio: " + this.getRaio() + ", centro: " + this.getCentro().toString() + "}";
+	}
+	
 }

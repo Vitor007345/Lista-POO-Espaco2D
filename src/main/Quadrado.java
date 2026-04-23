@@ -107,6 +107,14 @@ public class Quadrado extends Forma{
 		return this.lado * 4;
 	}
 	
+	@Override
+	public String toString() {
+		String str = "Quadrado: {lado: " + this.getLado() + ", ";
+		String strForma = super.toString();
+		str+= strForma.substring(1, strForma.length());
+		return str;
+	}
+	
 	
 	
 }

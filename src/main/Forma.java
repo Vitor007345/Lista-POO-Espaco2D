@@ -35,7 +35,7 @@ public abstract class Forma {
 	public abstract double calcularPerimetro();
 	
 	
-	public static Forma geraForma(Ponto2D[] pontos) {
+	public static Forma geraForma(Ponto2D... pontos) {
 		Forma forma = null;
 		if(Circulo.podeGerarUmCirculo(pontos)) {
 			forma = new Circulo(pontos);
