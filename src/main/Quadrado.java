@@ -5,7 +5,7 @@ public class Quadrado extends Forma{
 	private double lado;
 	
 	//constructors
-	public Quadrado(Ponto2D[] pontos) {
+	public Quadrado(Ponto2D... pontos) {
 		super(pontos);
 		Double lado = calculaLadoSeForQuadrado(pontos);
 		if(lado == null)throw new IllegalArgumentException("Os pontos passados não são um quadrado");

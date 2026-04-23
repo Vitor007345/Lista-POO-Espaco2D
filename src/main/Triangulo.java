@@ -18,7 +18,7 @@ public class Triangulo extends Forma{
 	}
 	
 	//constructors
-	public Triangulo(Ponto2D[] pontos) {
+	public Triangulo(Ponto2D... pontos) {
 		super(pontos);
 		if(!Triangulo.ehUmTringulo(pontos)) {
 			throw new IllegalArgumentException("Os pontos passados não são um triangulo");

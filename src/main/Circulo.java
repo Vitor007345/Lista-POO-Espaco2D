@@ -5,21 +5,29 @@ public class Circulo extends Forma{
 	private double raio;
 	
 	//constructors
-	public Circulo(Ponto2D[] pontos) {
-		super(new Ponto2D[] {pontos[0]});
+	public Circulo(Ponto2D... pontos) {
+		super(pontos[0]);
 		Double raio = calculaRaioSePossivel(pontos);
 		if(raio == null)throw new IllegalArgumentException("Esse conjunto de pontos não pode ser convertido em um circulo");
 		this.raio = raio;
 		
 	}
 	public Circulo(Ponto2D centro, double raio) {
-		super(new Ponto2D[] {centro});
+		super(centro);
 		this.raio = raio;
 	}
 	
 	public Circulo(Circulo circulo) {
 		super(circulo);
 		this.raio = circulo.raio;
+	}
+	
+	//getters
+	public double getRaio() {
+		return this.raio;
+	}
+	public Ponto2D getCentro() {
+		return new Ponto2D(this.getPontosRef()[0]);
 	}
 	
 	//public static methods

@@ -5,7 +5,7 @@ public abstract class Forma {
 	private Ponto2D[] pontos;
 	
 	//constructors
-	public Forma(Ponto2D[] pontos) {
+	public Forma(Ponto2D... pontos) {
 		this.pontos = pontos;
 	}
 	
