@@ -34,10 +34,22 @@ public abstract class Forma {
 	public abstract double calcularArea();
 	public abstract double calcularPerimetro();
 	
-	/*
+	
 	public static Forma geraForma(Ponto2D[] pontos) {
-		return null;
+		Forma forma = null;
+		if(Circulo.podeGerarUmCirculo(pontos)) {
+			forma = new Circulo(pontos);
+		}else if(Triangulo.ehUmTringulo(pontos)) {
+			forma = new Triangulo(pontos);
+		}else if(Quadrado.ehUmQuadrado(pontos)) {
+			forma = new Quadrado(pontos);
+		}
+		return forma;
 	}
-	*/
+	
+	
+	public static boolean doubleSaoIguais(double a, double b) {
+		return Math.abs(a - b) < 1e-9;
+	}
 	
 }

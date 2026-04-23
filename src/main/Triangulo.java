@@ -28,6 +28,14 @@ public class Triangulo extends Forma{
 		super(triangulo);
 	}
 	
+	//getters
+	public double[] getLados() {
+		double lado0 = this.getPonto(0).calcularDistanciaPontos(this.getPonto(1));
+		double lado1 = this.getPonto(1).calcularDistanciaPontos(this.getPonto(2));
+		double lado2 = this.getPonto(2).calcularDistanciaPontos(this.getPonto(0));
+		return new double[] {lado0, lado1, lado2};
+	}
+	
 	//methods
 	public static boolean ehUmTringulo(Ponto2D[] pontos) {
 		boolean ehTriangulo = false;
@@ -47,28 +55,23 @@ public class Triangulo extends Forma{
 	
 	@Override
 	public double calcularArea() {
-		double lado1 = this.getPonto(0).calcularDistanciaPontos(this.getPonto(1));
-		double lado2 = this.getPonto(1).calcularDistanciaPontos(this.getPonto(2));
-		double lado3 = this.getPonto(2).calcularDistanciaPontos(this.getPonto(0));
-		double sp = (lado1 + lado2 + lado3)/2;
-		return Math.sqrt(sp*(sp - lado1)*(sp - lado2)*(sp - lado3));	
+		double[] lados = this.getLados();
+		double sp = (lados[0] + lados[1] + lados[2])/2;
+		return Math.sqrt(sp*(sp - lados[0])*(sp - lados[1])*(sp - lados[2]));	
 	}
 	
 	@Override
 	public double calcularPerimetro() {
-		double lado1 = this.getPonto(0).calcularDistanciaPontos(this.getPonto(1));
-		double lado2 = this.getPonto(1).calcularDistanciaPontos(this.getPonto(2));
-		double lado3 = this.getPonto(2).calcularDistanciaPontos(this.getPonto(0));
-		return lado1 + lado2 + lado3;
+		double[] lados = this.getLados();
+		return lados[0] + lados[1] + lados[2];
 	}
 	
 	public Tipo tipoTriangulo() {
-		double lado1 = this.getPonto(0).calcularDistanciaPontos(this.getPonto(1));
-		double lado2 = this.getPonto(1).calcularDistanciaPontos(this.getPonto(2));
-		double lado3 = this.getPonto(2).calcularDistanciaPontos(this.getPonto(0));
-		
-		if(lado1 == lado2 && lado2 == lado3) return Tipo.EQUILATERO;
-		if((lado1 == lado2) || (lado1 ==  lado3) || (lado2 == lado3)) return Tipo.ISOSCELES;
+		double[] lados = this.getLados();
+		boolean ab = Forma.doubleSaoIguais(lados[0], lados[1]);
+		boolean bc = Forma.doubleSaoIguais(lados[1], lados[2]);
+		if(ab && bc) return Tipo.EQUILATERO;
+		if(ab || bc || Forma.doubleSaoIguais(lados[0], lados[2])/*ac*/) return Tipo.ISOSCELES;
 		return Tipo.ESCALENO;
 	}
 }

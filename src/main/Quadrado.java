@@ -50,15 +50,15 @@ public class Quadrado extends Forma{
 		double min = minMax[0];
 		double max = minMax[1];
 		
-		if(min != max) {
+		if(!Forma.doubleSaoIguais(min, max)) {
 			int countMin = 0;
 			int countMax = 0;
 			
 			ehQuadrado = true;
 			for(int i = 0; i < 6 && ehQuadrado; i++) {
 				final double dist = distancias[i];
-				if(dist == min) countMin++;
-				else if(dist == max) countMax++;
+				if(Forma.doubleSaoIguais(dist, min)) countMin++;
+				else if(Forma.doubleSaoIguais(dist, max)) countMax++;
 				else ehQuadrado = false;
 			}
 			if(ehQuadrado && (countMin != 4 || countMax != 2)) ehQuadrado = false;
