@@ -52,4 +52,19 @@ public abstract class Forma {
 		return Math.abs(a - b) < 1e-9;
 	}
 	
+	@Override
+	public String toString() {
+		String str = "{pontos: [";
+		if(this.pontos.length == 0) {
+			return  str + "]}";
+		}
+		str += this.pontos[0].toString();
+		for(int i = 1; i < this.pontos.length; i++) {
+			str += ", " + this.pontos[i].toString();
+		}
+		str += "]}";
+		return str;
+		
+	}
+	
 }
