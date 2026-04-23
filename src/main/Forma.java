@@ -10,7 +10,7 @@ public abstract class Forma {
 	}
 	
 	public Forma(Forma forma) {
-		this.pontos = Ponto2D.copyArr(forma.pontos);
+		this.pontos = forma.getPontosCopy();
 	}
 	
 	
@@ -20,6 +20,14 @@ public abstract class Forma {
 			return new Ponto2D(this.pontos[index]);
 		}
 		return null;	
+	}
+	
+	protected Ponto2D[] getPontosRef() {
+		return this.pontos;
+	}
+	
+	public Ponto2D[] getPontosCopy() {
+		return Ponto2D.copyArr(this.pontos);
 	}
 	
 	//methods

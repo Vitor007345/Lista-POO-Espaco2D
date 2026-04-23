@@ -31,7 +31,7 @@ public class Triangulo extends Forma{
 	//methods
 	public static boolean ehUmTringulo(Ponto2D[] pontos) {
 		boolean ehTriangulo = false;
-		if(Ponto2D.arrayDePontosEhNaoNulo(pontos) && pontos.length == 3) {
+		if(pontos !=  null && pontos.length == 3 && Ponto2D.arrayDePontosEhNaoNulo(pontos)) {
 			double lado1 = pontos[0].calcularDistanciaPontos(pontos[1]);
 			double lado2 = pontos[1].calcularDistanciaPontos(pontos[2]);
 			double lado3 = pontos[2].calcularDistanciaPontos(pontos[0]);
@@ -40,6 +40,9 @@ public class Triangulo extends Forma{
 			}
 		}
 		return ehTriangulo;
+	}
+	public static boolean ehUmTringulo(Forma forma) {
+		return ehUmTringulo(forma.getPontosRef());
 	}
 	
 	@Override
